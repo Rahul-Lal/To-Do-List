@@ -3,3 +3,13 @@ body
     background-image: url('../images/michael-mroczek-440382-unsplash.jpg');
     background-size: cover;
 }
+
+.mainList
+{
+    background-color: cornsilk;
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+}
