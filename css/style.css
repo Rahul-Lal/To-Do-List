@@ -4,12 +4,16 @@ body
     background-size: cover;
 }
 
-.mainList
+#mainList
 {
+    margin: 0, 0, 0, 50;
     background-color: cornsilk;
-    width: 33%;
+    width: 66%;
     display: inline-block;
     text-align: center;
     margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
+    vertical-align: middle;
 }

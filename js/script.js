@@ -9,32 +9,75 @@ var todos = ["Wake up", "prayer time","breakfast", "workout", "post-workout meal
         var Punisher = {name: "Frank Castle", Residence: "New York", Age: 45, weaponOfChoice:"Kelvar Skull Vest"};
         var Robocop = {name: "Alex Murphy", Residence: "Detroit", Age: 32, weaponOfChoice: "Auto 9 Handgun"};
     */
-var toDoList = {
-    todos: ["Wake up\n", "Grab a brush and put a little makeup\n", "Hide the scars to fade away the shakeup\n", "Why'd you leave the keys upon the table?\n"],
+   var toDoList = {
+    todos: [],
 
     retriveThatThingToDo: function()
     {
-        console.log("To Do List: \n" + this.todos);
+        console.log("To Do List: \n");
+        if(this.todos.length === 0)
+        {
+            console.log("This list is empty!");
+        }
+        else
+        {
+            for(var i = 0; i < this.todos.length; i++)
+            {
+                if(this.todos[i].completed === true)
+                {
+                    console.log("(x)", this.todos[i].todoItem);
+                }
+                else
+                {
+                    console.log("( )", this.todos[i].todoItem);
+                }
+            }
+        }
     },
-    createThatThingToDo: function(todo)
+    createThatThingToDo: function(todoText)
     {
-        this.todos.push(todo);
+        this.todos.push(
+            {
+                todoItem: todoText,
+                completed: false
+            });
         this.retriveThatThingToDo();
     },
-    updateThatThingToDo: function(position, newInput)
+    updateThatThingToDo: function(position, todoText)
     {
-        this.todos[position] = newInput;
+        // this.todos[position] = newInput;
+        this.todos[position].todoItem = todoText;
         this.retriveThatThingToDo();
     },
     deleteThatThingToDo: function(position)
     {
         this.todos.splice(position, 1);
         this.retriveThatThingToDo();
+    },
+    toggleCompleted : function(position)
+    {
+        var todo = this.todos[position];
+        todo.completed = !todo.completed;
+        this.retriveThatThingToDo();
+    },
+    toggleAll : function()
+    {
+        if(this.todos.completed === true)
+        {
+            this.todos.completed = false;
+        }
+        else
+        {
+            this.todos.completed = !this.todos.completed;
+
+        };
+        this.retriveThatThingToDo();
     }
 };
 
-toDoList.createThatThingToDo("workout");
-
+toDoList.retriveThatThingToDo();
+toDoList.createThatThingToDo("Brunch");
+toDoList.retriveThatThingToDo();
 // Functions
 
 
@@ -61,7 +104,7 @@ toDoList.createThatThingToDo("workout");
     makeSandwichWith(chicken);
     console.log("My To Do List /n" + todos);
 */
-
+/*
 function createThatThingToDo(newThingToDo)
 {
     // newThingToDo = document.getElementById("txtInput").innerHTML;
